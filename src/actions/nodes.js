@@ -1,25 +1,25 @@
 import fetch from 'cross-fetch';
-import * as types from '../constants/actionTypes';
+import {CHECK_NODE_STATUS_START, CHECK_NODE_STATUS_SUCCESS, CHECK_NODE_STATUS_FAILURE} from '../constants/actionTypes';
 
 const checkNodeStatusStart = (node) => {
   return {
-    type: types.CHECK_NODE_STATUS_START,
+    type: CHECK_NODE_STATUS_START,
     node
   };
 };
 
 const checkNodeStatusSuccess = (node, res) => {
   return {
-    type: types.CHECK_NODE_STATUS_SUCCESS,
+    type: CHECK_NODE_STATUS_SUCCESS,
     node,
     res
   };
 };
 
-const checkNodeStatusFailure = node => {
+const checkNodeStatusFailure = (node) => {
   return {
-    type: types.CHECK_NODE_STATUS_FAILURE,
-    node,
+    type: CHECK_NODE_STATUS_FAILURE,
+    node
   };
 };
 

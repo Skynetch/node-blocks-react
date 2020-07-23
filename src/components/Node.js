@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Blocks } from "./Blocks/Blocks";
 import {
   ExpansionPanel,
   ExpansionPanelSummary,
@@ -46,7 +47,7 @@ const Node = ({ node, expanded, toggleNodeExpanded }) => {
         </Box>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
-        <Typography>Blocks go here</Typography>
+        <Blocks blocks={node.blocks} />
       </ExpansionPanelDetails>
     </ExpansionPanel>
   );
@@ -104,6 +105,11 @@ Node.propTypes = {
     online: PropTypes.bool,
     name: PropTypes.string,
     loading: PropTypes.bool,
+    blocks: PropTypes.shape({
+      data: PropTypes.array,
+      loading: PropTypes.bool,
+      status: PropTypes.bool
+    })
   }).isRequired,
   expanded: PropTypes.bool,
   toggleNodeExpanded: PropTypes.func.isRequired,
